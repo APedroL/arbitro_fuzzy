@@ -61,25 +61,21 @@ class SistemaArbitroFuzzy:
 
         self.regras = [
             # Cartão Vermelho
-            ctrl.Rule(I['grave']     & N['agressiva'],                    K['vermelho']),
-            ctrl.Rule(I['grave']     & N['agressiva'] & R['alto_risco'],  K['vermelho']),
-            ctrl.Rule(I['grave']     & Re['alta']     & C['critico'],     K['vermelho']),
+            ctrl.Rule(I['grave']    & N['agressiva'],                     K['vermelho']),
+            ctrl.Rule(I['grave']    & N['agressiva'] & R['alto_risco'],   K['vermelho']),
+            ctrl.Rule(I['grave']    & Re['alta']     & C['critico'],      K['vermelho']),
             ctrl.Rule(N['agressiva'] & Re['alta'],                        K['vermelho']),
-            ctrl.Rule(I['grave']     & R['alto_risco'] & C['critico'],    K['vermelho']),
-            ctrl.Rule(I['moderada']  & N['agressiva'],                    K['vermelho']),
+            ctrl.Rule(I['grave']    & R['alto_risco'] & C['critico'],     K['vermelho']),
             # Cartão Amarelo
-            ctrl.Rule(I['moderada']  & N['imprudente'],                   K['amarelo']),
-            ctrl.Rule(I['grave']     & N['acidental'],                    K['amarelo']),
-            ctrl.Rule(I['moderada']  & Re['alta'],                        K['amarelo']),
+            ctrl.Rule(I['moderada'] & N['imprudente'],                    K['amarelo']),
+            ctrl.Rule(I['grave']    & N['acidental'],                     K['amarelo']),
+            ctrl.Rule(I['moderada'] & Re['alta'],                         K['amarelo']),
             ctrl.Rule(N['imprudente'] & R['alto_risco'],                  K['amarelo']),
-            ctrl.Rule(I['moderada']  & C['critico'],                      K['amarelo']),
-            ctrl.Rule(Re['media']    & N['imprudente'] & C['relevante'],  K['amarelo']),
-            ctrl.Rule(I['leve']      & N['agressiva'],                    K['amarelo']),
-            ctrl.Rule(I['leve']      & N['imprudente'],                   K['amarelo']),
+            ctrl.Rule(I['moderada'] & C['critico'],                       K['amarelo']),
+            ctrl.Rule(Re['media']   & N['imprudente'] & C['relevante'],   K['amarelo']),
             # Sem Cartão
-            ctrl.Rule(I['leve']      & N['acidental'],                    K['sem_cartao']),
-            ctrl.Rule(I['moderada']  & N['acidental'],                    K['sem_cartao']),
-            ctrl.Rule(I['leve']      & Re['baixa']    & C['normal'],      K['sem_cartao']),
+            ctrl.Rule(I['leve']     & N['acidental'],                     K['sem_cartao']),
+            ctrl.Rule(I['leve']     & N['acidental'] & R['baixo_risco'],  K['sem_cartao']),
         ]
 
     def inferir(self, intensidade, intencao, regiao, reincidencia, contexto):
@@ -88,18 +84,14 @@ class SistemaArbitroFuzzy:
         self.simulacao.input['regiao']       = regiao
         self.simulacao.input['reincidencia'] = reincidencia
         self.simulacao.input['contexto']     = contexto
-        try:
-            self.simulacao.compute()
-            return float(self.simulacao.output['cartao'])
-        except Exception:
-            # Fallback: média ponderada simples quando nenhuma regra cobre a combinação
-            return (intensidade * 0.35 + intencao * 0.35 + regiao * 0.15
-                    + reincidencia * 0.1 + contexto * 0.05)
+        self.simulacao.compute()
+        return float(self.simulacao.output['cartao'])
 
     def get_universo(self):
         return np.arange(0, 10.01, 0.1)
 
     def get_mfs_saida(self):
+        u = self.get_universo()
         return {
             'sem_cartao': self.cartao['sem_cartao'].mf,
             'amarelo':    self.cartao['amarelo'].mf,
@@ -107,5 +99,6 @@ class SistemaArbitroFuzzy:
         }
 
     def get_mfs_entrada(self, variavel):
+        u = self.get_universo()
         var = getattr(self, variavel)
         return {term: var[term].mf for term in var.terms}
