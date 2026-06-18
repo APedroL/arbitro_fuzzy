@@ -61,8 +61,11 @@ Para executar a aplicação localmente, é necessário clonar o repositório, in
 bash
 
 git clone https://github.com/APedroL/arbitro_fuzzy.git
+
 cd arbitro_fuzzy
+
 pip install -r requirements.txt
+
 streamlit run app.py
 
 Após a inicialização, a aplicação estará disponível no endereço `http://localhost:8501`.
