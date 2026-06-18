@@ -5,7 +5,10 @@ Protótipo de sistema especialista baseado em lógica fuzzy para auxílio à tom
 
 Desenvolvido como trabalho prático da disciplina **Lógica Nebulosa** — UFF.
 
-## Como executar localmente
+## Site
+https://arbitrofuzzy.streamlit.app/
+
+## Como Executar Localmente
 
 bash
 pip install -r requirements.txt
