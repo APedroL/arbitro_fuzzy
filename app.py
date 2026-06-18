@@ -1,12 +1,12 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-import skfuzzy as fuzz
 from fuzzy_engine import SistemaArbitroFuzzy
 
 st.title("Sistema Fuzzy para Arbitragem de Futebol")
 st.write("Protótipo de sistema especialista para auxílio à decisão de árbitros.")
 
+@st.cache_resource
 def carregar_sistema():
     return SistemaArbitroFuzzy()
 
