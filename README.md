@@ -70,6 +70,8 @@ streamlit run app.py
 
 Após a inicialização, a aplicação estará disponível no endereço `http://localhost:8501`.
 
+Pode ser acessado também pelo endereço web: https://arbitrofuzzy.streamlit.app/
+
 ## Limitações e trabalhos futuros
 
 Embora o sistema apresente resultados coerentes em diversos cenários, sua base de regras foi construída de forma empírica e ainda não passou por um processo formal de validação com especialistas em arbitragem.
