@@ -54,6 +54,7 @@ R5. SE a intensidade da falta é grave E a região atingida é de alto risco E o
 
 R6. SE a intensidade da falta é moderada E a intenção é agressiva, ENTÃO aplicar cartão vermelho.
 
+
 Regras para Cartão Amarelo
 
 R7. SE a intensidade da falta é moderada E a intenção é imprudente, ENTÃO aplicar cartão amarelo.
@@ -72,6 +73,7 @@ R12. SE a reincidência é média E a intenção é imprudente E o contexto da p
 R13. SE a intensidade da falta é leve E a intenção é agressiva, ENTÃO aplicar cartão amarelo.
 
 R14. SE a intensidade da falta é leve E a intenção é imprudente, ENTÃO aplicar cartão amarelo.
+
 
 Regras para Sem Cartão
 
