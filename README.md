@@ -40,7 +40,7 @@ O comportamento do sistema é definido por um conjunto de 17 regras linguística
 
 A ativação da saída (o cartão recomendado) ocorre quando a conjunção exata dos fatores mapeados é identificada pelo motor de inferência. Abaixo estão as regras mapeadas no sistema:
 
-Regras para Cartão Vermelho
+_Regras para Cartão Vermelho_
 
 R1. SE a intensidade da falta é grave E a intenção é agressiva, ENTÃO aplicar cartão vermelho.
 
@@ -55,7 +55,7 @@ R5. SE a intensidade da falta é grave E a região atingida é de alto risco E o
 R6. SE a intensidade da falta é moderada E a intenção é agressiva, ENTÃO aplicar cartão vermelho.
 
 
-Regras para Cartão Amarelo
+_Regras para Cartão Amarelo_
 
 R7. SE a intensidade da falta é moderada E a intenção é imprudente, ENTÃO aplicar cartão amarelo.
 
@@ -75,7 +75,7 @@ R13. SE a intensidade da falta é leve E a intenção é agressiva, ENTÃO aplic
 R14. SE a intensidade da falta é leve E a intenção é imprudente, ENTÃO aplicar cartão amarelo.
 
 
-Regras para Sem Cartão
+_Regras para Sem Cartão_
 
 R15. SE a intensidade da falta é leve E a intenção é acidental, ENTÃO não aplicar cartão.
 
