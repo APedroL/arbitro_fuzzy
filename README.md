@@ -36,50 +36,6 @@ A saída do sistema corresponde a um índice contínuo de severidade da infraç�
 
 ## Base de regras
 
-O comportamento do sistema é definido por um conjunto de regras linguísticas construídas a partir de princípios gerais utilizados na arbitragem esportiva.
-
-Essas regras estabelecem relações entre as variáveis de entrada e a recomendação disciplinar resultante. Como exemplo, infrações caracterizadas por alta intensidade e elevada intencionalidade tendem a resultar em cartão vermelho, enquanto faltas moderadas e imprudentes geralmente conduzem à aplicação de cartão amarelo.
-
-A utilização de regras linguísticas permite representar o conhecimento humano de forma interpretável e transparente, possibilitando futuras expansões e refinamentos do modelo.
-
-# Árbitro Fuzzy: Sistema Especialista para Apoio à Arbitragem no Futebol
-
-A arbitragem no futebol é uma atividade complexa que exige decisões rápidas em cenários frequentemente marcados por subjetividade e incerteza. A interpretação de uma infração depende de diversos fatores, como a intensidade do contato, a intenção do jogador, a região do corpo atingida, o contexto da jogada e o histórico disciplinar do atleta. Embora existam regras estabelecidas pelas entidades responsáveis pelo esporte, a aplicação prática dessas regras envolve julgamento humano e análise contextual.
-
-Nesse cenário, a lógica fuzzy apresenta-se como uma alternativa adequada para modelar problemas que não podem ser representados de forma precisa por sistemas binários tradicionais. Diferentemente da lógica clássica, em que uma afirmação é considerada totalmente verdadeira ou totalmente falsa, a lógica fuzzy permite trabalhar com diferentes graus de pertinência, aproximando o comportamento computacional do raciocínio humano.
-
-Este projeto propõe o desenvolvimento de um sistema especialista baseado em lógica fuzzy para auxiliar a tomada de decisão em lances de futebol. O objetivo é estimar a severidade de uma infração e sugerir uma recomendação disciplinar entre três possíveis resultados: ausência de cartão, cartão amarelo ou cartão vermelho.
-
-É importante destacar que o sistema possui caráter educacional e demonstrativo, não tendo a finalidade de substituir árbitros profissionais, assistentes de vídeo ou protocolos oficiais de arbitragem.
-
-## Objetivos
-
-O principal objetivo deste projeto é demonstrar a aplicação prática da lógica fuzzy na resolução de um problema real caracterizado por incerteza e subjetividade.
-
-Entre os objetivos específicos, destacam-se a modelagem de critérios utilizados na arbitragem esportiva, a construção de um sistema especialista baseado em regras linguísticas, o desenvolvimento de uma interface interativa para análise de lances e a investigação da capacidade da lógica fuzzy de representar decisões humanas em cenários complexos.
-
-## Modelagem do problema
-
-Para representar o processo de tomada de decisão do árbitro, foram selecionadas cinco variáveis de entrada consideradas relevantes na avaliação de uma infração.
-
-A primeira variável corresponde à _intensidade da infração_, representando o nível de força empregado pelo jogador durante o lance. A segunda variável é a _intenção do jogador_, que busca estimar o grau de intencionalidade da ação. A terceira variável considera a _região atingida_, levando em conta o potencial de risco associado à parte do corpo afetada.
-
-Além disso, o sistema incorpora a _reincidência do jogador_, representando a frequência de faltas cometidas ao longo da partida, e o _contexto da jogada_, que avalia o impacto esportivo e tático da infração, como a interrupção de um ataque promissor ou de uma oportunidade clara de gol.
-
-Todas as variáveis são representadas em uma escala contínua de 0 a 10, permitindo uma avaliação gradual e mais próxima da interpretação humana.
-
-## Sistema de inferência fuzzy
-
-O sistema foi implementado utilizando o modelo de inferência de Mamdani, amplamente empregado em sistemas especialistas devido à sua interpretabilidade e facilidade de representação por meio de regras linguísticas.
-
-As variáveis de entrada são modeladas por funções de pertinência triangulares e trapezoidais, permitindo a representação de termos linguísticos como baixo, médio e alto, ou equivalentes específicos de cada variável.
-
-O processo de inferência utiliza o operador mínimo para representar a conjunção lógica AND e o operador máximo para agregação dos resultados das regras ativadas. A etapa de defuzzificação é realizada por meio do método do centroide, responsável por converter o conjunto fuzzy de saída em um valor numérico representativo.
-
-A saída do sistema corresponde a um índice contínuo de severidade da infração, posteriormente interpretado em três categorias disciplinares: sem cartão, cartão amarelo e cartão vermelho.
-
-## Base de regras
-
 O comportamento do sistema é definido por um conjunto de 17 regras linguísticas construídas a partir de combinações específicas entre as variáveis de entrada, utilizando o operador lógico `AND` (E) para formar os cenários de punição. 
 
 A ativação da saída (o cartão recomendado) ocorre quando a conjunção exata dos fatores mapeados é identificada pelo motor de inferência. Abaixo estão as regras mapeadas no sistema:
